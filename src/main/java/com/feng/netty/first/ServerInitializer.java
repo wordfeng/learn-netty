@@ -1,4 +1,4 @@
-package com.feng.netty.test;
+package com.feng.netty.first;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
