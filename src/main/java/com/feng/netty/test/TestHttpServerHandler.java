@@ -18,6 +18,10 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
+
+        //fix IOException
+        if (!(msg instanceof HttpRequest)) return;
+
         //向客户端响应的内容
         ByteBuf content = Unpooled.copiedBuffer("Hi,Netty", CharsetUtil.UTF_8);
         //与Servlet无关，由Netty提供
