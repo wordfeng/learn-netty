@@ -84,8 +84,32 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
     }
 
     @Override
+    public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("handlerRemoved");
+        super.handlerRemoved(ctx);
+    }
+
+    @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channel Inactive");
         super.channelInactive(ctx);
+    }
+
+    @Override
+    public boolean acceptInboundMessage(Object msg) throws Exception {
+        System.out.println("acceptInboundMessage");
+        return super.acceptInboundMessage(msg);
+    }
+
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("channelRead");
+        super.channelRead(ctx, msg);
+    }
+
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channelReadComplete");
+        super.channelReadComplete(ctx);
     }
 }
