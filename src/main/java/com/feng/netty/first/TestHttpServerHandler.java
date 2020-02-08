@@ -62,12 +62,27 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
         super.channelActive(ctx);
     }
 
+    /**
+     * 连接不活动
+     */
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channel Inactive");
+        super.channelInactive(ctx);
+    }
+
+    /**
+     * 连接注册
+     */
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channel Registered");
         super.channelRegistered(ctx);
     }
 
+    /**
+     *  取消注册
+     */
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channel Unregistered ");
@@ -75,7 +90,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
     }
 
     /**
-     * 通道被添加
+     * 连接建立
      */
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
@@ -83,17 +98,15 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
         super.handlerAdded(ctx);
     }
 
+    /**
+     * 丢失连接，连接断开了。
+     */
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
         System.out.println("handlerRemoved");
         super.handlerRemoved(ctx);
     }
 
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("channel Inactive");
-        super.channelInactive(ctx);
-    }
 
     @Override
     public boolean acceptInboundMessage(Object msg) throws Exception {

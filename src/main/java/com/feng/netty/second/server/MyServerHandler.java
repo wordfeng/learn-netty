@@ -20,7 +20,7 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String> {
 
             Channel channel = ctx.channel();
             System.out.println(channel.remoteAddress() + ", " + msg);
-            channel.writeAndFlush("from server: " + UUID.randomUUID());
+            channel.writeAndFlush("from server msg: " + UUID.randomUUID());
         } finally {
             ReferenceCountUtil.release(msg);
         }

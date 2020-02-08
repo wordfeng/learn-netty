@@ -19,6 +19,14 @@ public class MyClientHandler extends SimpleChannelInboundHandler<String> {
 
     }
 
+    /**
+     * 连接上以后
+     */
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.writeAndFlush("hello server");
+    }
+
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
